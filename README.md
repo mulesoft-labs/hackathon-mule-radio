@@ -1,4 +1,4 @@
-hackathon-mule-radio
-====================
+Mule Radio
+==========
 
 Mule Radio for Hackathon

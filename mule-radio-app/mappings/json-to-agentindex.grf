@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="damiansima" created="Thu Apr 18 15:29:05 GMT-03:00 2013" guiVersion="3.3.2" id="1366312483503" licenseCode="CLPXDMULES37812333BY" licenseType="Commercial" modified="Thu Apr 18 15:29:05 GMT-03:00 2013" modifiedBy="damiansima" name="json_to_agentindex_grf" preview-file="${Project_Home}/src/main/resources/agentIndex.json" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Output" id="aa182e95-2f03-41d0-b97e-da65a0a55d66">
+<Record fieldDelimiter="|" name="AgentIndex" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __sourcePath="{}/object/agentId" containerType="SINGLE" label="agentId" name="agentId" type="string"/>
+</Record>
+</Metadata>
+<Metadata __sourcePath="{}/object/indexRecords" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="ab663951-0b88-4fb3-b5a7-e0921b824b4c" _parent_id="__parent_id" _type="Input" id="c4fcda3f-d31e-4bed-ad96-4057e6b7e5bf">
+<Record fieldDelimiter="|" name="indexRecords" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_parent_id" __systemManaged="true" label="__parent_id" name="__parent_id" type="string"/>
+<Field __artificialType="_id" __systemManaged="true" label="__id" name="__id" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/id" containerType="SINGLE" label="id" name="id" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/album" containerType="SINGLE" label="album" name="album" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/artist" containerType="SINGLE" label="artist" name="artist" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/fileUrl" containerType="SINGLE" label="fileUrl" name="fileUrl" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/song" containerType="SINGLE" label="song" name="song" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/category" containerType="SINGLE" label="category" name="category" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/pathLocal" containerType="SINGLE" label="pathLocal" name="pathLocal" type="string"/>
+</Record>
+</Metadata>
+<Metadata __sourcePath="{}/object/indexRecords" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="aa182e95-2f03-41d0-b97e-da65a0a55d66" _parent_id="__parent_id" _type="Output" id="38500dc9-53e9-4e32-bcd3-1dbce15c2068">
+<Record fieldDelimiter="|" name="indexRecords" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/album" containerType="SINGLE" label="album" name="album" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/artist" containerType="SINGLE" label="artist" name="artist" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/category" containerType="SINGLE" label="category" name="category" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/fileUrl" containerType="SINGLE" label="fileUrl" name="fileUrl" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/id" containerType="SINGLE" label="id" name="id" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/pathLocal" containerType="SINGLE" label="pathLocal" name="pathLocal" type="string"/>
+<Field __sourcePath="{}/object/indexRecords/song" containerType="SINGLE" label="song" name="song" type="string"/>
+</Record>
+</Metadata>
+<Metadata __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Input" id="ab663951-0b88-4fb3-b5a7-e0921b824b4c">
+<Record fieldDelimiter="|" name="object" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" label="__id" name="__id" type="string"/>
+<Field __sourcePath="{}/object/agentId" containerType="SINGLE" label="agentId" name="agentId" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" fileURL="dict:outputPayload" guiHeight="0" guiName="Pojo WRITER" guiWidth="0" guiX="900" guiY="20" id="BEAN_WRITER0" type="BEAN_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
+  <agentId>$0.agentId</agentId>
+  <clover:collection clover:name="indexRecords">
+    <item clover:inPort="1" clover:key="__parent_id" clover:parentKey="__id">
+      <album>$1.album</album>
+      <artist>$1.artist</artist>
+      <category>$1.category</category>
+      <fileUrl>$1.fileUrl</fileUrl>
+      <id>$1.id</id>
+      <pathLocal>$1.pathLocal</pathLocal>
+      <song>$1.song</song>
+    </item>
+  </clover:collection>
+</object>]]></attr>
+<attr name="_data_format"><![CDATA[JAVA]]></attr>
+<attr name="schema"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema-object>
+  <typed-object-ref type-ref="org.mule.hackathon.AgentIndex"/>
+  <typed-object type="org.mule.hackathon.AgentIndex">
+    <typed-object-ref name="agentId" type-ref="java.lang.String"/>
+    <schema-collection name="indexRecords" type="java.util.List">
+      <typed-object-ref type-ref="org.mule.hackathon.AgentIndexRecord"/>
+    </schema-collection>
+  </typed-object>
+  <typed-object type="org.mule.hackathon.AgentIndexRecord">
+    <typed-object-ref name="album" type-ref="java.lang.String"/>
+    <typed-object-ref name="artist" type-ref="java.lang.String"/>
+    <typed-object-ref name="category" type-ref="java.lang.String"/>
+    <typed-object-ref name="fileUrl" type-ref="java.lang.String"/>
+    <typed-object-ref name="id" type-ref="java.lang.String"/>
+    <typed-object-ref name="pathLocal" type-ref="java.lang.String"/>
+    <typed-object-ref name="song" type-ref="java.lang.String"/>
+  </typed-object>
+  <typed-object type="java.lang.String"/>
+</schema-object>
+]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiHeight="0" guiName="JSON READER" guiWidth="0" guiX="20" guiY="20" id="JSON_READER0" type="JSON_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context xpath="/root">
+  <Context outPort="0" sequenceField="__id" xpath="object">
+    <Mapping cloverField="agentId" trim="true" xpath="agentId"/>
+    <Context generatedKey="__parent_id" outPort="1" parentKey="__id" sequenceField="__id" xpath="indexRecords">
+      <Mapping cloverField="id" trim="true" xpath="id"/>
+      <Mapping cloverField="album" trim="true" xpath="album"/>
+      <Mapping cloverField="artist" trim="true" xpath="artist"/>
+      <Mapping cloverField="fileUrl" trim="true" xpath="fileUrl"/>
+      <Mapping cloverField="song" trim="true" xpath="song"/>
+      <Mapping cloverField="category" trim="true" xpath="category"/>
+      <Mapping cloverField="pathLocal" trim="true" xpath="pathLocal"/>
+    </Context>
+  </Context>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[JSON]]></attr>
+<attr name="jsonSchemaURL"><![CDATA[./src/main/resources/agentIndex.json]]></attr>
+</Node>
+<Node enabled="enabled" guiHeight="0" guiName="Foreach 'object' -&gt; 'object'" guiWidth="0" guiX="460" guiY="20" id="REFORMAT0" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.agentId = input.agentId;
+]]></attr>
+</Node>
+<Node enabled="enabled" guiHeight="0" guiName="Foreach 'indexRecords' -&gt; 'indexRecords'" guiWidth="0" guiX="460" guiY="120" id="REFORMAT1" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+output.__parent_id = input.__parent_id;
+//END -> DO NOT REMOVE
+output.id = input.id;
+output.album = input.album;
+output.artist = input.artist;
+output.fileUrl = input.fileUrl;
+output.song = input.song;
+output.category = input.category;
+output.pathLocal = input.pathLocal;
+]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="JSON_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="ab663951-0b88-4fb3-b5a7-e0921b824b4c" outPort="Port 0 (out)" toNode="REFORMAT0:0"/>
+<Edge debugMode="true" fromNode="JSON_READER0:1" guiBendpoints="" id="Edge2" inPort="Port 0 (in)" metadata="c4fcda3f-d31e-4bed-ad96-4057e6b7e5bf" outPort="Port 1 (out)" toNode="REFORMAT1:0"/>
+<Edge debugMode="true" fromNode="REFORMAT0:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="aa182e95-2f03-41d0-b97e-da65a0a55d66" outPort="Port 0 (out)" toNode="BEAN_WRITER0:0"/>
+<Edge debugMode="true" fromNode="REFORMAT1:0" guiBendpoints="" id="Edge3" inPort="Port 1 (in)" metadata="38500dc9-53e9-4e32-bcd3-1dbce15c2068" outPort="Port 0 (out)" toNode="BEAN_WRITER0:1"/>
+</Phase>
+</Graph>

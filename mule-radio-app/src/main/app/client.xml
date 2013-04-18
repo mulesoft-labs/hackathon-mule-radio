@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/1.0/mule-objectstore.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd">
+    <flow name="get-songs-flow" doc:name="get-songs-flow">
+    <http:inbound-endpoint exchange-pattern="request-response" host="${http.host}" port="${http.port}" doc:name="HTTP" path="client/songs"/>
+        <logger message="Get Songs Called..." level="INFO" doc:name="Logger"/>
+        
+        <objectstore:all-keys config-ref="ObjectStore" doc:name="ObjectStore"/>
+        <logger message="The Keys: #[payload]" level="INFO" doc:name="Logger"/>
+        <foreach doc:name="For Each">
+            <logger message="Key #[payload]" level="INFO" doc:name="Logger"/>
+            <objectstore:retrieve config-ref="ObjectStore" key="#[payload]" doc:name="ObjectStore"/>
+            <custom-transformer class="org.mule.hackathon.transformers.SongListBuilder" doc:name="SongListBuilder"/>
+        </foreach>
+        <scripting:transformer doc:name="Groovy">
+            <scripting:script engine="Groovy"><![CDATA[list  = message.getInvocationProperty("songList")
+
+if(list==null){
+	list = []
+}
+return list;]]></scripting:script>
+        </scripting:transformer>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <http:response-builder status="200" doc:name="HTTP Response Builder" contentType="application/json">
+            <http:header name="Access-Control-Allow-Methods" value="GET"/>
+            <http:header name="Access-Control-Allow-Headers" value="Content-Type, Authorization"/>
+            <http:header name="Access-Control-Allow-Origin" value="*"/>
+        </http:response-builder>
+    </flow>
+    <flow name="get-song-flow" doc:name="get-song-flow">
+    <http:inbound-endpoint exchange-pattern="request-response" host="${http.host}" port="${http.port}" doc:name="HTTP" path="client/find"/>
+        <set-variable variableName="searchText" value="#[header:inbound:q]" doc:name="searchText"/>
+        <logger message="Find Songs Called, search param #[flowVars['searchText']]&#8230;" level="INFO" doc:name="Logger"/>
+        
+        <objectstore:all-keys config-ref="ObjectStore" doc:name="ObjectStore"/>
+        <logger message="The Keys: #[payload]" level="INFO" doc:name="Logger"/>
+        <foreach doc:name="For Each">
+            <logger message="Key #[payload]" level="INFO" doc:name="Logger"/>
+            <objectstore:retrieve config-ref="ObjectStore" key="#[payload]" doc:name="ObjectStore"/>
+            <custom-transformer class="org.mule.hackathon.transformers.SongListBuilder" doc:name="SongListBuilder"/>
+        </foreach>
+        <scripting:transformer doc:name="Groovy">
+            <scripting:script engine="Groovy"><![CDATA[return message.getInvocationProperty("songList");
+]]></scripting:script>
+        </scripting:transformer>
+        <custom-transformer class="org.mule.hackathon.transformers.ParticularSongListBuilder" doc:name="ParticularSongListBuilder"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <http:response-builder status="200" doc:name="HTTP Response Builder" contentType="application/json">
+            <http:header name="Access-Control-Allow-Methods" value="GET"/>
+            <http:header name="Access-Control-Allow-Headers" value="Content-Type, Authorization"/>
+            <http:header name="Access-Control-Allow-Origin" value="*"/>
+        </http:response-builder>
+    </flow>
+</mule>

@@ -1,0 +1,140 @@
+{
+    "agentId": "http://172.16.20.142:9090",
+    "indexRecords": [
+        {
+            "id": "13",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=13",
+            "song": "Donata Suarez",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track14.mp3"
+        },
+        {
+            "id": "14",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=14",
+            "song": "1976",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track15.mp3"
+        },
+        {
+            "id": "11",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=11",
+            "song": "Ututa",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track12.mp3"
+        },
+        {
+            "id": "12",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=12",
+            "song": "Octubre en solo de madres",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track13.mp3"
+        },
+        {
+            "id": "3",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=3",
+            "song": "Comadre dora",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track04.mp3"
+        },
+        {
+            "id": "2",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=2",
+            "song": "Gatito de la fiesta",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track03.mp3"
+        },
+        {
+            "id": "1",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=1",
+            "song": "Bicho de ciudad aire de chacar",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track02.mp3"
+        },
+        {
+            "id": "10",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=10",
+            "song": "Tus costas",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track11.mp3"
+        },
+        {
+            "id": "0",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=0",
+            "song": "Yocavil",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track01.mp3"
+        },
+        {
+            "id": "7",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=7",
+            "song": "La cruzadita chacarera",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track08.mp3"
+        },
+        {
+            "id": "6",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=6",
+            "song": "La lopez pereyra",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track07.mp3"
+        },
+        {
+            "id": "5",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=5",
+            "song": "Bien haigan las dudas",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track06.mp3"
+        },
+        {
+            "id": "4",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=4",
+            "song": "Luna tucumana",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track05.mp3"
+        },
+        {
+            "id": "9",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=9",
+            "song": "La mudita",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track10.mp3"
+        },
+        {
+            "id": "8",
+            "album": "Yocavil",
+            "artist": "Lucho Hoyos",
+            "fileUrl": "http://172.16.20.142:9090/streaming?file=8",
+            "song": "Lavandera chaguanca",
+            "category": "Other",
+            "pathLocal": "/Users/josesahad/Music/LuchoHoyosYocavil/Track09.mp3"
+        }
+    ]
+}
