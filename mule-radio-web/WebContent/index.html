@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mule Audio Streaming</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="icons/favicon.ico" rel="shortcut icon" type="text/css" >
+<link href="css/style.css" rel="stylesheet" type="text/css" >
+<link href="css/jplayer.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script type="text/javascript" src="conf/properties.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="js/jmule-radio.js"></script>
+</head>
+
+<body>
+ 	<div class="container">
+	    <div class="info">
+	      <article class="hero clearfix">
+	        <div class="col_100">
+	        	<img class="inline" src="icons/mule-radio-logo.png" />
+	          	<h1 class="inline">The best radio that will make your ears bleed</h1>
+	        </div>
+	      </article>
+		</div>
+	
+		<article class="article clearfix">
+			<div class="col_25">
+				<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+				<div id="jp_container_1" class="jp-audio-stream">
+					<div class="jp-type-single">
+						<div class="jp-gui jp-interface">
+							<ul class="jp-controls">
+								<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+								<li><a href="javascript:;" class="jp-pause" tabindex="1">stop</a></li>
+								<li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+								<li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+								<li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+							</ul>
+							<div class="jp-volume-bar">
+								<div class="jp-volume-bar-value"></div>
+							</div>
+						</div>						
+						<div class="jp-no-solution">
+							<span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+						</div>
+					</div>
+				</div>
+				<div id="songplaying"></div>
+			</div>
+			
+			<div class="col_75">
+				<form class="search" onsubmit="javascript:executeSearch(event);">
+					<input class="success" type="text" id="q" />
+					<input class="button" type="submit" value="Search"/>
+				</form>
+				<div id="songsholder">
+					<img class="loadericon" src="icons/ajax-loader.gif" />
+				</div>
+			</div>
+		</article>
+	</div>
+</body>
+</html>

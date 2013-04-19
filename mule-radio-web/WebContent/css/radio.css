@@ -1,0 +1,43 @@
+.inline {
+	display: inline;
+}
+
+.search {
+	margin-bottom: 10px;
+}
+
+.song {
+	float: left;
+	width: 128px;
+	margin-left: 8px;
+	margin-bottom: 8px;
+}
+
+.song .song,
+.song .artist,
+.song .album,
+.song .category {
+	background-position: left;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	padding: 0px;
+	margin: 0px;
+	padding-left: 18px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.song .song {
+	background-image: url("../icons/song-small-icon.png");
+}
+
+.song .artist {
+	background-image: url("../icons/artist-small-icon.png");
+}
+
+.song .album {
+	background-image: url("../icons/album-small-icon.png");
+}
+
+.song .category {
+}
